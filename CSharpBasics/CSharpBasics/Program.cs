@@ -43,7 +43,7 @@ namespace CSharpBasics
         }
         public static void Exrc3(string[] strings)
         {
-            var stringAppearances = new Dictionary<string, int>();
+            Dictionary<string, int> stringAppearances = new Dictionary<string, int>();
             foreach (string currString in strings)
             {
                 if (stringAppearances.ContainsKey(currString))
