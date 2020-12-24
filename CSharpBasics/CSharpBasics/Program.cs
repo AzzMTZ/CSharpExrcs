@@ -79,19 +79,20 @@ namespace CSharpBasics
                                       * for exanple instead of "* 9" you can use "* arrayVariable.length"
                                       */
         {
-            const int TY_SUFFIX_APPEARANCES = 8,
-                TEEN_SUFFIX_APPEARANCES = 7,
-                LAST_DIGITS_APPEARANCES = 9,
+            const int LAST_DIGITS_APPEARANCES = 9,/*I am not sure if it's better to use the length of LAST_DIGITS_APPEARANCES
+                                              instead of this constant since it has a different meaning 
+                                              than the array's length*/
                 SECOND_LAST_DIGITS_APPEARANCES = 10;
 
             string[] oneToNineNames = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" },
-            tenToNineteenNames = { "ten", "eleven", "twelve", "thir", "four", "fif", "six", "seven", "eigh", "nine" },
+            tenToTwelveNames = { "ten", "eleven", "twelve" },
+            thirteenToNineteenNames = { "thir", "four", "fif", "six", "seven", "eigh", "nine" },
             twentyToNinetyNames = { "twen", "thir", "for", "fif", "six", "seven", "eigh", "nine" };
 
-            return (String.Join("", oneToNineNames).Length * LAST_DIGITS_APPEARANCES) +
-             String.Join("", tenToNineteenNames).Length +
-             "teen".Length * TEEN_SUFFIX_APPEARANCES +
-             ((String.Join("", twentyToNinetyNames).Length + "ty".Length * TY_SUFFIX_APPEARANCES) * SECOND_LAST_DIGITS_APPEARANCES);
+            return (string.Join("", oneToNineNames).Length * LAST_DIGITS_APPEARANCES) +
+                   string.Join("", tenToTwelveNames).Length +
+                   string.Join("", thirteenToNineteenNames).Length + "teen".Length * thirteenToNineteenNames.Length +
+                   ((string.Join("", twentyToNinetyNames).Length + "ty".Length * twentyToNinetyNames.Length) * SECOND_LAST_DIGITS_APPEARANCES);
         }
     }
 }
