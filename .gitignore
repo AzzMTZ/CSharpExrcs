@@ -1,2 +1,4 @@
-/CSharpBasics
-!*.cs
+*.sln
+/bin
+/obj
+*.csproj

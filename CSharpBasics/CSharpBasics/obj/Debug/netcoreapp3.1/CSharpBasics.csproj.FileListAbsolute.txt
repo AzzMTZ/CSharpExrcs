@@ -1,0 +1,13 @@
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.exe
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.deps.json
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.runtimeconfig.json
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.runtimeconfig.dev.json
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.dll
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.pdb
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.AssemblyInfoInputs.cache
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.AssemblyInfo.cs
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.csproj.CoreCompileInputs.cache
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.dll
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.pdb
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.genruntimeconfig.cache
+C:\Users\azzmi\Documents\git\CSharpExrcs\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.csprojAssemblyReference.cache
