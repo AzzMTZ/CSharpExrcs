@@ -3,47 +3,58 @@ using System.Collections.Generic;
 
 namespace CSharpBasics
 {
-    class Program
+
+    /*
+     * General comments:
+     * 1. Too many magic numbers. Use constants which explains what use of those numbers
+     * 2. Leave an empty line between each function and before logical oporators
+     * 3. Use better vairable names
+     */
+    public class Program // Change to "public class Program"
     {
-        static void Main(string[] args)
+        private const int TRIPLES_NO_LIMIT = -1;
+
+        public static void Main(string[] args) // Change to "public static void Main(string[] args)"
         {
             Exrc1();
-            Exrc2(1000);
+            Exrc2(240);
             Exrc2(12);
             Exrc2(2000);
-            Exrc3(new string[] { "Basmach", "Empire", "Basmach", "RZA", "Empire", "Basmach", "RZA", "Respect" });
+            Exrc3(new string[] { "Basmach", "Empire", "Basmach", "RZA", "Empire", "Basmach", "RZA", "Respect" });// Nice varible values so much better then the original :)
             Console.WriteLine(ExrcBonus());
         }
-        public static void Exrc1()
+
+        public static void Exrc1()// Notice that Exrc1 and Exrc2 are the same function, instead of copying your code just call from one function to the other one
         {
-            for (int i = 1; i < 333; i++)
+            Exrc2(1000, 1);
+        }
+
+        public static void Exrc2(int sumOfSides, int pythagorianTriplesLimit = TRIPLES_NO_LIMIT)
+        {
+            for (int firstSide = 1; firstSide < sumOfSides / 3 && pythagorianTriplesLimit != 0; firstSide++)
             {
-                for (int j = i + 1; j <= (1000 - i) / 2; j++)
+                for (int secondSide = firstSide + 1; secondSide <= (sumOfSides - firstSide) / 2 && pythagorianTriplesLimit != 0; secondSide++)
                 {
-                    if (i * i + j * j == Math.Pow(1000 - i - j, 2))
+                    int hypotenuse = sumOfSides - firstSide - secondSide;
+                    double sumOfSquaredTwoSides = Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2);
+
+                    if (sumOfSquaredTwoSides == Math.Pow(hypotenuse, 2))// I would have put i * i + j * j and Math.Pow(1000 - i - j, 2) in vairables just to explain the meaning of this condition better
                     {
-                        Console.WriteLine($"{i},{j},{1000 - i - j}");
-                        break;
+                        Console.WriteLine($"{firstSide},{secondSide},{hypotenuse}");
+
+                        if (pythagorianTriplesLimit > 0)
+                        {
+                            pythagorianTriplesLimit--;
+                        }
                     }
                 }
             }
         }
-        public static void Exrc2(int sum)
-        {
-            for (int i = 1; i < sum / 3; i++)
-            {
-                for (int j = i + 1; j <= (sum - i) / 2; j++)
-                {
-                    if (i * i + j * j == Math.Pow(sum - i - j, 2))
-                    {
-                        Console.WriteLine($"{i},{j},{sum - i - j}");
-                    }
-                }
-            }
-        }
+
         public static void Exrc3(string[] strings)
         {
             Dictionary<string, int> stringAppearances = new Dictionary<string, int>();
+
             foreach (string currString in strings)
             {
                 if (stringAppearances.ContainsKey(currString))
@@ -55,17 +66,32 @@ namespace CSharpBasics
                     stringAppearances[currString] = 1;
                 }
             }
-            foreach (KeyValuePair<string, int> item in stringAppearances)
+
+            foreach (KeyValuePair<string, int> currString in stringAppearances)
             {
-                Console.WriteLine("{0},{1}", item.Key, item.Value);
+                Console.WriteLine("{0},{1}", currString.Key, currString.Value);
             }
         }
-        public static int ExrcBonus()
+
+        public static int ExrcBonus()/* Each string here could be in a string array with a name that explains its purpse, 
+                                      * for expmaple ["one", "two"...]. Read about join method.
+                                      * In addition if you use arrays and vaiables you can switch the multipication with the array length,
+                                      * for exanple instead of "* 9" you can use "* arrayVariable.length"
+                                      */
         {
-            return
-                "onetwothreefourfivesixseveneightnine".Length * 9 +
-                "teneleventwelvethirfourfifsixseveneighnine".Length + "teen".Length * 7 +
-                 10 * ("twenthirforfifsixseveneighnine".Length + "ty".Length * 8);
+            const int TY_SUFFIX_APPEARANCES = 8,
+                TEEN_SUFFIX_APPEARANCES = 7,
+                LAST_DIGITS_APPEARANCES = 9,
+                SECOND_LAST_DIGITS_APPEARANCES = 10;
+
+            string[] oneToNineNames = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" },
+            tenToNineteenNames = { "ten", "eleven", "twelve", "thir", "four", "fif", "six", "seven", "eigh", "nine" },
+            twentyToNinetyNames = { "twen", "thir", "for", "fif", "six", "seven", "eigh", "nine" };
+
+            return (String.Join("", oneToNineNames).Length * LAST_DIGITS_APPEARANCES) +
+             String.Join("", tenToNineteenNames).Length +
+             "teen".Length * TEEN_SUFFIX_APPEARANCES +
+             ((String.Join("", twentyToNinetyNames).Length + "ty".Length * TY_SUFFIX_APPEARANCES) * SECOND_LAST_DIGITS_APPEARANCES);
         }
     }
 }
