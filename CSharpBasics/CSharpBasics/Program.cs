@@ -46,6 +46,7 @@ namespace CSharpBasics
                         {
                             pythagorianTriplesLimit--;
                         }
+                        // If you are only using this one break its only going to leave the inner for statment which means it will continue the loop in the outer loop statment.
                     }
                 }
             }
@@ -79,8 +80,8 @@ namespace CSharpBasics
                                       * for exanple instead of "* 9" you can use "* arrayVariable.length"
                                       */
         {
-            const int LAST_DIGITS_APPEARANCES = 9,/*I am not sure if it's better to use the length of LAST_DIGITS_APPEARANCES
-                                              instead of this constant since it has a different meaning 
+            const int LAST_DIGITS_APPEARANCES = 9,/*I am not sure if it's better to use the length of oneToNineNames
+                                              instead of this constant, since it has a different meaning 
                                               than the array's length*/
                 SECOND_LAST_DIGITS_APPEARANCES = 10;
 
