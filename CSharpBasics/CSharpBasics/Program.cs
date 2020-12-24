@@ -6,7 +6,6 @@ namespace CSharpBasics
 
     public class Program
     {
-        int a;
         private const int TRIPLES_NO_LIMIT = -1;
         private static readonly string[] ONE_TO_NINE = { "one", "two", "three", "four", "five",
                                                          "six", "seven", "eight", "nine" },
