@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\azzmi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\azzmi\\Documents\\git\\CSharpExrcs\\CSharpBasics\\CSharpBasics\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\azzmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
