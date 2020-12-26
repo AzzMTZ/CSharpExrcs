@@ -4,41 +4,47 @@ using System.Collections.Generic;
 namespace CSharpBasics
 {
 
-    /*
-     * General comments:
-     * 1. Too many magic numbers. Use constants which explains what use of those numbers
-     * 2. Leave an empty line between each function and before logical oporators
-     * 3. Use better vairable names
-     */
-    public class Program // Change to "public class Program"
+    public class Program
     {
-        private const int TRIPLES_NO_LIMIT = -1;
 
-        public static void Main(string[] args) // Change to "public static void Main(string[] args)"
+        private const int TRIPLES_NO_LIMIT = -1;
+        private static readonly string[] ONE_TO_NINE = { "one", "two", "three", "four", "five",
+                                                         "six", "seven", "eight", "nine" },
+                                         TEN_TO_TWELVE = { "ten", "eleven", "twelve" },
+                                         THIRTEEN_TO_NINETEEN = { "thir", "four", "fif", "six",
+                                                                  "seven", "eigh", "nine" },
+                                         TWENTY_TO_NINETY = { "twen", "thir", "for", "fif",
+                                                              "six", "seven", "eigh", "nine" };
+
+        public static void Main(string[] args)
         {
             Exrc1();
             Exrc2(240);
             Exrc2(12);
             Exrc2(2000);
-            Exrc3(new string[] { "Basmach", "Empire", "Basmach", "RZA", "Empire", "Basmach", "RZA", "Respect" });// Nice varible values so much better then the original :)
+            Exrc3(new string[] { "Basmach", "Empire", "Basmach", "RZA", "Empire", "Basmach", "RZA", "Respect" });
             Console.WriteLine(ExrcBonus());
         }
 
-        public static void Exrc1()// Notice that Exrc1 and Exrc2 are the same function, instead of copying your code just call from one function to the other one
+        public static void Exrc1()
         {
             Exrc2(1000, 1);
         }
 
         public static void Exrc2(int sumOfSides, int pythagorianTriplesLimit = TRIPLES_NO_LIMIT)
         {
-            for (int firstSide = 1; firstSide < sumOfSides / 3 && pythagorianTriplesLimit != 0; firstSide++)
+            for (int firstSide = 1;
+                firstSide < sumOfSides / 3 && pythagorianTriplesLimit != 0;
+                firstSide++)
             {
-                for (int secondSide = firstSide + 1; secondSide <= (sumOfSides - firstSide) / 2 && pythagorianTriplesLimit != 0; secondSide++)
+                for (int secondSide = firstSide + 1;
+                    secondSide <= (sumOfSides - firstSide) / 2 && pythagorianTriplesLimit != 0;
+                    secondSide++)
                 {
                     int hypotenuse = sumOfSides - firstSide - secondSide;
                     double sumOfSquaredTwoSides = Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2);
 
-                    if (sumOfSquaredTwoSides == Math.Pow(hypotenuse, 2))// I would have put i * i + j * j and Math.Pow(1000 - i - j, 2) in vairables just to explain the meaning of this condition better
+                    if (sumOfSquaredTwoSides == Math.Pow(hypotenuse, 2))
                     {
                         Console.WriteLine($"{firstSide},{secondSide},{hypotenuse}");
 
@@ -73,25 +79,33 @@ namespace CSharpBasics
             }
         }
 
-        public static int ExrcBonus()/* Each string here could be in a string array with a name that explains its purpse, 
-                                      * for expmaple ["one", "two"...]. Read about join method.
-                                      * In addition if you use arrays and vaiables you can switch the multipication with the array length,
-                                      * for exanple instead of "* 9" you can use "* arrayVariable.length"
-                                      */
+        public static int ExrcBonus()
         {
-            const int TY_SUFFIX_APPEARANCES = 8,
-                TEEN_SUFFIX_APPEARANCES = 7,
-                LAST_DIGITS_APPEARANCES = 9,
-                SECOND_LAST_DIGITS_APPEARANCES = 10;
+            return getNumLettersOfLastDigits() +
+                   getNumLettersOfTenToNineteen() +
+                   getNumLettersOfSecondLastDigits();
+        }
 
-            string[] oneToNineNames = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" },
-            tenToNineteenNames = { "ten", "eleven", "twelve", "thir", "four", "fif", "six", "seven", "eigh", "nine" },
-            twentyToNinetyNames = { "twen", "thir", "for", "fif", "six", "seven", "eigh", "nine" };
+        private static int getNumLettersOfLastDigits()
+        {
+            const int LAST_DIGITS_APPEARANCES = 9;
 
-            return (String.Join("", oneToNineNames).Length * LAST_DIGITS_APPEARANCES) +
-             String.Join("", tenToNineteenNames).Length +
-             "teen".Length * TEEN_SUFFIX_APPEARANCES +
-             ((String.Join("", twentyToNinetyNames).Length + "ty".Length * TY_SUFFIX_APPEARANCES) * SECOND_LAST_DIGITS_APPEARANCES);
+            return string.Join("", ONE_TO_NINE).Length * LAST_DIGITS_APPEARANCES;
+        }
+
+        private static int getNumLettersOfTenToNineteen()
+        {
+            return string.Join("", TEN_TO_TWELVE).Length +
+                   string.Join("", THIRTEEN_TO_NINETEEN).Length +
+                   ("teen".Length * THIRTEEN_TO_NINETEEN.Length);
+        }
+
+        private static int getNumLettersOfSecondLastDigits()
+        {
+            const int SECOND_LAST_DIGITS_APPEARANCES = 10;
+
+            return (string.Join("", TWENTY_TO_NINETY).Length + "ty".Length * TWENTY_TO_NINETY.Length) *
+                   SECOND_LAST_DIGITS_APPEARANCES;
         }
     }
 }
