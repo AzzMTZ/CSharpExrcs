@@ -1,2 +1,5 @@
-CSharpExrc/
-!*.cs
+.vs/
+bin/
+obj/
+*.csproj
+*.sln
